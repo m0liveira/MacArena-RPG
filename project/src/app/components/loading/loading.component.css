@@ -1,0 +1,128 @@
+body {
+  position: relative;
+  height: 100vh;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.overlay .progress {
+  position: fixed;
+  top: 75%;
+  left: 10%;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 0.3rem;
+  width: 80%;
+  height: 4%;
+  overflow: hidden;
+}
+
+.overlay .progress .loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ffc885;
+  width: 0;
+  height: 100%;
+}
+
+.overlay .tracker {
+  position: absolute;
+  top: 72.7%;
+  left: 9%;
+  background: url(../../../assets/media/tracker.png) no-repeat center;
+  width: 4%;
+  height: 8%;
+  z-index: 1;
+}
+
+/* load animation */
+.load {
+  -webkit-animation: load 4s 1 forwards;
+  animation: load 4s 1 forwards;
+}
+
+.track {
+  -webkit-animation: track 4s 1 forwards;
+  animation: track 4s 1 forwards;
+}
+
+@keyframes track {
+  from {
+    transform: translateX(0%);
+  }
+  15% {
+    transform: translateX(300%);
+  }
+  30% {
+    transform: translateX(300%);
+  }
+  60% {
+    transform: translateX(1300%);
+  }
+  70% {
+    transform: translateX(1300%);
+  }
+  80% {
+    transform: translateX(1700%);
+  }
+  85% {
+    transform: translateX(1700%);
+  }
+  90% {
+    transform: translateX(1800%);
+  }
+  95% {
+    transform: translateX(1900%);
+  }
+  to {
+    transform: translateX(2000%);
+  }
+}
+
+@keyframes load {
+  from {
+    width: 0;
+  }
+  15% {
+    width: 15%;
+  }
+  30% {
+    width: 15%;
+  }
+  60% {
+    width: 65%;
+  }
+  70% {
+    width: 65%;
+  }
+  80% {
+    width: 85%;
+  }
+  85% {
+    width: 85%;
+  }
+  90% {
+    width: 90%;
+  }
+  95% {
+    width: 95%;
+  }
+  to {
+    width: 100%;
+  }
+}

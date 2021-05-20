@@ -1,0 +1,26 @@
+:root {
+  --montserrat: Montserrat, sans-serif;
+}
+
+/* reset */
+
+*,
+*:after,
+*:before {
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--montserrat);
+  outline: none;
+}
+
+body {
+  width: calc(100vw - (100vw - 100%));
+  height: auto;
+}
+
+.hide {
+  display: none !important;
+}

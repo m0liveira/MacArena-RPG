@@ -1,9 +1,11 @@
+/* sky */
 body {
   position: relative;
   background: #7aceff;
   height: 100vh;
 }
 
+/* clouds */
 svg {
   position: absolute;
   top: -3%;
@@ -15,6 +17,7 @@ svg {
 svg path {
 }
 
+/* coliseum and barbarian */
 .img-container {
   position: absolute;
   top: 40%;
@@ -30,10 +33,14 @@ svg path {
   object-fit: fill;
 }
 
+/* barbarian dialogue balloon */
 .img-container .dialoge {
   position: absolute;
   top: 20%;
   left: 72%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: white;
   border: 5px solid black;
   box-shadow: inset 0px 0px 10px 7px rgba(0, 0, 0, 0.25);
@@ -49,12 +56,26 @@ svg path {
   left: 104%;
   background: white;
   border: 5px solid black;
-  box-shadow: inset 0px 0px 10px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
   border-radius: 100%;
   width: 15%;
   height: 25%;
 }
 
+/* dialogue text */
+.img-container .dialoge p {
+  color: black;
+  font-family: var(--pixel);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8vw;
+  line-height: 1.6875rem;
+  text-align: center;
+  width: 90%;
+  height: auto;
+}
+
+/* start button */
 a {
   position: absolute;
   top: 40%;
@@ -71,4 +92,84 @@ a {
   padding: 1.5% 3%;
   cursor: pointer;
   z-index: 1;
+}
+
+/* overlay */
+.overlay {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* box */
+.overlay .box {
+  display: flex;
+  flex-direction: row;
+  background: white;
+  border-radius: 0.625rem;
+  width: 60%;
+  height: 80%;
+}
+
+/* left side */
+.overlay .box .left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 2px solid #a0a0a0;
+  width: 50%;
+  height: 100%;
+}
+.overlay .box .left::before {
+  content: "Or";
+  position: absolute;
+  top: 47.5%;
+  left: 92.5%;
+  color: black;
+  font-family: var(--montserrat);
+  font-variant: small-caps;
+  font-weight: 500;
+  font-size: 1.5vw;
+  text-align: center;
+  width: 15%;
+  height: auto;
+  z-index: 2;
+}
+.overlay .box .left::after {
+  content: "";
+  position: absolute;
+  top: 45%;
+  left: 92.7%;
+  background: white;
+  box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 100%;
+  width: 15%;
+  height: 10%;
+  z-index: 1;
+}
+
+.overlay .box .background{
+  width: 100%;
+  height: 50%;
+}
+
+.overlay .box .left .background{
+  position: absolute;
+  left: 0;
+  top: unset;
+  bottom: 0;
+  background: #2376B1;
+}
+
+/* right side */
+.overlay .box .right {
+  /* border: 1px solid teal; */
+  width: 50%;
+  height: 100%;
 }

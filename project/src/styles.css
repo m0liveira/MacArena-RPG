@@ -1,6 +1,7 @@
 :root {
   --montserrat: Montserrat, sans-serif;
-  --pixel: 'Press Start 2P', cursive;
+  --pixel: "Press Start 2P", cursive;
+  --semibold: "Open Sans", sans-serif;
 }
 
 /* reset */

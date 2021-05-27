@@ -1,4 +1,5 @@
 /* sky */
+
 body {
   position: relative;
   background: #7aceff;
@@ -6,6 +7,7 @@ body {
 }
 
 /* clouds */
+
 svg {
   position: absolute;
   top: -3%;
@@ -14,10 +16,10 @@ svg {
   height: 60%;
 }
 
-svg path {
-}
+svg path {}
 
 /* coliseum and barbarian */
+
 .img-container {
   position: absolute;
   top: 40%;
@@ -34,6 +36,7 @@ svg path {
 }
 
 /* barbarian dialogue balloon */
+
 .img-container .dialoge {
   position: absolute;
   top: 20%;
@@ -63,6 +66,7 @@ svg path {
 }
 
 /* dialogue text */
+
 .img-container .dialoge p {
   color: black;
   font-family: var(--pixel);
@@ -76,6 +80,7 @@ svg path {
 }
 
 /* start button */
+
 a {
   position: absolute;
   top: 40%;
@@ -95,6 +100,7 @@ a {
 }
 
 /* overlay */
+
 .overlay {
   position: fixed;
   display: flex;
@@ -107,6 +113,7 @@ a {
 }
 
 /* box */
+
 .overlay .box {
   display: flex;
   flex-direction: row;
@@ -117,6 +124,7 @@ a {
 }
 
 /* left side */
+
 .overlay .box .left {
   position: relative;
   display: flex;
@@ -126,6 +134,7 @@ a {
   width: 50%;
   height: 100%;
 }
+
 .overlay .box .left::before {
   content: "Or";
   position: absolute;
@@ -141,6 +150,7 @@ a {
   height: auto;
   z-index: 2;
 }
+
 .overlay .box .left::after {
   content: "";
   position: absolute;
@@ -154,8 +164,7 @@ a {
   z-index: 1;
 }
 
-.overlay .box .left *:not(.background),
-.overlay .box .right *:not(.background) {
+.overlay .box .left *:not(.background), .overlay .box .right *:not(.background) {
   z-index: 1;
 }
 
@@ -174,6 +183,29 @@ a {
   height: 50%;
 }
 
+.overlay .box .left .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border: red 1px solid;
+  margin-bottom: 15%;
+  width: 100%;
+  height: 20%;
+}
+
+.overlay .box .left .container:nth-of-type(3) {
+  justify-content: space-between;
+  margin-bottom: 0;
+  height: 30%;
+}
+
+.overlay .box .left .container:nth-of-type(4) {
+  justify-content: space-evenly;
+  margin-bottom: 0;
+  height: 40%;
+}
+
 .overlay .box p {
   font-size: 2.5vw;
   font-family: var(--semibold);
@@ -182,7 +214,6 @@ a {
   line-height: 140%;
   letter-spacing: 0.05rem;
   text-align: left;
-  padding-top: 5%;
   width: 80%;
 }
 
@@ -193,7 +224,6 @@ a {
   font-variant: small-caps;
   line-height: 140%;
   text-align: left;
-  padding-top: 3%;
   width: 70%;
 }
 
@@ -202,60 +232,71 @@ a {
   border: 1px solid #000000;
   box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.25);
   border-radius: 0.3rem;
-  font-size: 1rem;
+  font-size: 1vw;
+  padding: 0 5%;
   width: 70%;
-  padding: 3% 5%;
+  height: 27%;
 }
 
-.overlay .box .left input {
-  margin-top: 18%;
-}
-
-.overlay .box .left input:nth-of-type(2) {
-  margin-top: 27%;
-}
-
-.overlay .box .left input:last-of-type {
+.overlay .box .left #checkbox {
   position: relative;
   align-self: flex-start;
-  margin: 8% 0 0 16%;
-  width: 4%;
-  height: 3%;
+  background: rgba(0, 0, 0, 0);
+  margin-left: 15%;
+  width: 4.5%;
+  height: 8%;
   cursor: pointer;
   z-index: 2;
-}
-
-.overlay .box .left input:last-of-type::after {
-  content: "Remember me";
-  position: absolute;
-  top: 8%;
-  left: 145%;
-  color: white;
-  font-size: 0.8vw;
-  width: 1000%;
+  opacity: 0;
 }
 
 .overlay .box .left span {
-  position: absolute;
-  top: 60vh;
-  left: 16%;
-  background-color: red;
-  width: 4%;
-  height: 3%;
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid #FFFFFF;
+  border-radius: 5px;
+  width: 4.7%;
+  height: 9%;
+  transform: translate(-695%, -205%);
 }
 
-.overlay .box .left button {
-  outline: none;
-  border: none;
+.overlay .box .left span::after {
+  content: "Remember me";
+  position: absolute;
+  left: 160%;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 0.8vw;
+  width: 1000%;
+  height: 100%;
+  cursor: default;
+}
+
+.overlay .box button {
   color: #2376b1;
   background: #ffffff;
   border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 1.5vw;
+  font-family: var(--semibold);
+  font-weight: 700;
+  font-variant: small-caps;
+  text-align: center;
+  margin-bottom: 10%;
   width: 45%;
-  height: 8%;
+  height: 25%;
   cursor: pointer;
 }
 
+.overlay .box .right button {
+  color: white;
+  background: #FF4343;
+}
+
 /* right side */
+
 .overlay .box .right {
   position: relative;
   display: flex;
@@ -273,7 +314,6 @@ a {
   height: 100%;
 }
 
-.right p,
-.right h1 {
+.right p, .right h1 {
   color: white;
 }

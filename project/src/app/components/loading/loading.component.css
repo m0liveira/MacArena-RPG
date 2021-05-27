@@ -44,13 +44,19 @@ video {
   position: absolute;
   top: 72.7%;
   left: 9%;
-  background: url(../../../assets/media/tracker.png) no-repeat center;
   width: 4%;
   height: 8%;
   z-index: 1;
 }
 
+.overlay .tracker img{
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
 /* load animation */
+
 .load {
   -webkit-animation: load 4s 1 forwards;
   animation: load 4s 1 forwards;

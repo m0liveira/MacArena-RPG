@@ -16,7 +16,8 @@ svg {
   height: 60%;
 }
 
-svg path {}
+svg path {
+}
 
 /* coliseum and barbarian */
 
@@ -164,7 +165,8 @@ a {
   z-index: 1;
 }
 
-.overlay .box .left *:not(.background), .overlay .box .right *:not(.background) {
+.overlay .box .left *:not(.background),
+.overlay .box .right *:not(.background) {
   z-index: 1;
 }
 
@@ -183,24 +185,23 @@ a {
   height: 50%;
 }
 
-.overlay .box .left .container {
+.overlay .box .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  border: red 1px solid;
   margin-bottom: 15%;
   width: 100%;
   height: 20%;
 }
 
-.overlay .box .left .container:nth-of-type(3) {
+.overlay .box .container:nth-of-type(3) {
   justify-content: space-between;
   margin-bottom: 0;
   height: 30%;
 }
 
-.overlay .box .left .container:nth-of-type(4) {
+.overlay .box .container:nth-of-type(4) {
   justify-content: space-evenly;
   margin-bottom: 0;
   height: 40%;
@@ -250,17 +251,17 @@ a {
   opacity: 0;
 }
 
-.overlay .box .left span {
+.overlay .box .left .checkbox {
   position: relative;
   background: rgba(255, 255, 255, 0.15);
-  border: 2px solid #FFFFFF;
+  border: 2px solid #ffffff;
   border-radius: 5px;
   width: 4.7%;
   height: 9%;
   transform: translate(-695%, -205%);
 }
 
-.overlay .box .left span::after {
+.overlay .box .left .checkbox::after {
   content: "Remember me";
   position: absolute;
   left: 160%;
@@ -271,6 +272,19 @@ a {
   width: 1000%;
   height: 100%;
   cursor: default;
+}
+
+.overlay .box .left .checkMark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 5px;
+  font-size: 0;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  transition: font-size 350ms ease-in-out, transform 350ms ease-in-out;
 }
 
 .overlay .box button {
@@ -292,7 +306,7 @@ a {
 
 .overlay .box .right button {
   color: white;
-  background: #FF4343;
+  background: #ff4343;
 }
 
 /* right side */
@@ -314,6 +328,43 @@ a {
   height: 100%;
 }
 
-.right p, .right h1 {
+.right p,
+.right h1 {
   color: white;
+}
+
+.overlay .box .right .container > div {
+  height: 27%;
+}
+
+.checkAnim {
+  -webkit-animation: check 350ms 1 forwards;
+  animation: check 350ms 1 forwards;
+}
+
+.uncheckAnim {
+  -webkit-animation: uncheck 350ms 1 forwards;
+  animation: uncheck 350ms 1 forwards;
+}
+
+@keyframes uncheck {
+  from {
+    font-size: 1vw;
+    transform: rotate(360deg);
+  }
+  to {
+    font-size: 0vw;
+    transform: rotate(0);
+  }
+}
+
+@keyframes check {
+  from {
+    font-size: 0vw;
+    transform: rotate(0);
+  }
+  to {
+    font-size: 1vw;
+    transform: rotate(360deg);
+  }
 }

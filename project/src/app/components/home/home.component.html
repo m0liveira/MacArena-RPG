@@ -45,10 +45,10 @@
     </div>
   </div>
 
-  <a>Start Game</a>
+  <a (click)="startGame(overlay)">Start Game</a>
 
   <!-- sign in/up form -->
-  <div class="overlay">
+  <div #overlay class="overlay hide">
     <div class="box">
       <!-- left -->
       <form action="" method="" class="left">
@@ -60,13 +60,15 @@
         </div>
 
         <div class="container">
-          <input type="text" placeholder="Username">
-          <input type="text" placeholder="Password">
+          <input type="text" placeholder="Username" required>
+          <input type="text" placeholder="Password" required>
         </div>
 
         <div class="container">
-          <input id="checkbox" type="checkbox">
-          <span></span>
+          <input id="checkbox" type="checkbox" (click)="checkAnim(checkmark)">
+          <span class="checkbox">
+            <span #checkmark class="checkMark">✖</span>
+          </span>
 
           <button>Sign in</button>
         </div>
@@ -76,14 +78,21 @@
       <form action="" method="" class="right">
         <div class="background"></div>
 
-        <p>Sign up</p>
-        <h1>Fill the form below to create an account</h1>
+        <div class="container">
+          <p>Sign up</p>
+          <h1>Fill the form below to create an account</h1>
+        </div>
 
-        <input type="text" placeholder="Username">
-        <input type="text" placeholder="Password">
-        <input type="text" placeholder="Confirm password">
+        <div class="container">
+          <input type="text" placeholder="Username" required>
+          <input type="text" placeholder="Password" required>
+          <input type="text" placeholder="Confirm password" required>
+        </div>
 
-        <button>Sign up</button>
+        <div class="container">
+          <div></div>
+          <button>Sign up</button>
+        </div>
       </form>
     </div>
   </div>

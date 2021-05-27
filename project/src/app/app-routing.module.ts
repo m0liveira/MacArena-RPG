@@ -18,6 +18,11 @@ const routes: Routes = [
   },
   {
     path: "City", component: CityComponent
+  },
+  {
+    path: "**",
+    redirectTo: "/Loading",
+    pathMatch: 'full'
   }
 ];
 
@@ -25,4 +30,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { RpgServiceService } from 'src/app/services/rpg-service.service';
 
@@ -8,9 +9,13 @@ import { RpgServiceService } from 'src/app/services/rpg-service.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private rpgService: RpgServiceService) {}
+  constructor(private rpgService: RpgServiceService, router: Router) {
+    this.router = router;
+  }
 
-  ngOnInit(): void {}
+  router: Router;
+
+  ngOnInit(): void { }
 
   // variables
   check: boolean = false;
@@ -23,9 +28,15 @@ export class HomeComponent implements OnInit {
     }
   }
 
+
   // login
   logIn(user, pass) {
-    this.rpgService.logIn(user, pass).subscribe((x) => console.log(x['data']));
+    this.rpgService.logIn(user, pass).subscribe((x) => {
+      if (x['code'] == 200) {
+        this.router.navigate(['/City']);
+      }
+      console.log(x['data'])
+    });
   }
 
   logOn(user, pass, passConfirm: HTMLInputElement) {

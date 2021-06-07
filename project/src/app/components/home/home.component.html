@@ -51,7 +51,7 @@
   <div #overlay class="overlay hide">
     <div class="box">
       <!-- left -->
-      <form action="" method="" class="left">
+      <div class="left">
         <div class="background"></div>
 
         <div class="container">
@@ -60,22 +60,22 @@
         </div>
 
         <div class="container">
-          <input type="text" placeholder="Username" required>
-          <input type="text" placeholder="Password" required>
+          <input #user type="text" placeholder="Username" required>
+          <input #pass type="password" placeholder="Password" required>
         </div>
 
         <div class="container">
           <input id="checkbox" type="checkbox" (click)="checkAnim(checkmark)">
-          <span class="checkbox">
+          <span #cbox class="checkbox">
             <span #checkmark class="checkMark">✖</span>
           </span>
 
-          <button>Sign in</button>
+          <button (click)="logIn(user.value, pass.value)">Sign in</button>
         </div>
-      </form>
+      </div>
 
       <!-- right -->
-      <form action="" method="" class="right">
+      <div class="right">
         <div class="background"></div>
 
         <div class="container">
@@ -84,16 +84,16 @@
         </div>
 
         <div class="container">
-          <input type="text" placeholder="Username" required>
-          <input type="text" placeholder="Password" required>
-          <input type="text" placeholder="Confirm password" required>
+          <input #username type="text" placeholder="Username" required>
+          <input #pass type="password" placeholder="Password" required>
+          <input #passConfirm type="password" placeholder="Confirm password" required>
         </div>
 
         <div class="container">
           <div></div>
-          <button>Sign up</button>
+          <button (click)="logOn(username.value, pass.value, passConfirm)">Sign up</button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </body>

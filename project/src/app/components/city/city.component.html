@@ -1,5 +1,5 @@
 <body>
-  <div class="map">
+  <div class="map not">
     <img src="../../../assets/media/map_texture.png">
   </div>
 
@@ -7,11 +7,29 @@
     <img src="../../../assets/media/arena.png" alt="arena">
   </div>
 
-  <div class="trainning">
-    <img src="../../../assets/media/trainning barrack.png" alt="trainning">
+  <div class="training">
+    <img src="../../../assets/media/training_barrack.png" alt="training">
   </div>
 
   <div class="shop">
     <img src="../../../assets/media/shop.png" alt="shop">
+  </div>
+
+  <div class="playerCard not">
+    <div class="top not">
+      <p>Username</p>
+
+      <div class="img-container not">
+        <img src="https://image.flaticon.com/icons/png/512/3135/3135715.png" alt="">
+      </div>
+
+      <div class="img-container not">
+        <img (click)="logOut()" src="../../../assets/media/exit.png" alt="">
+      </div>
+    </div>
+
+    <div class="bottom not">
+
+    </div>
   </div>
 </body>

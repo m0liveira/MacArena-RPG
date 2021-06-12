@@ -60,8 +60,8 @@
         </div>
 
         <div class="container">
-          <input #user type="text" placeholder="Username" required>
-          <input #pass type="password" placeholder="Password" required>
+          <input #user (click)="removeWrong(user, pass)" type="text" placeholder="Username" required>
+          <input #pass (click)="removeWrong(user, pass)" type="password" placeholder="Password" required>
         </div>
 
         <div class="container">
@@ -70,7 +70,7 @@
             <span #checkmark class="checkMark">✖</span>
           </span>
 
-          <button (click)="logIn(user.value, pass.value)">Sign in</button>
+          <button (click)="logIn(user.value, pass.value, user, pass)">Sign in</button>
         </div>
       </div>
 

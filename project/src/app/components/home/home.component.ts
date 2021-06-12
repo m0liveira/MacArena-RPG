@@ -30,10 +30,13 @@ export class HomeComponent implements OnInit {
 
 
   // login
-  logIn(user, pass) {
+  logIn(user, pass, input1: HTMLInputElement, input2: HTMLInputElement) {
     this.rpgService.logIn(user, pass).subscribe((x) => {
       if (x['code'] == 200) {
         this.router.navigate(['/City']);
+      } else {
+        input1.classList.add('wrong');
+        input2.classList.add('wrong');
       }
       console.log(x['data'])
     });
@@ -47,6 +50,11 @@ export class HomeComponent implements OnInit {
     } else {
       alert('As passwords não são iguais!');
     }
+  }
+
+  removeWrong(user: HTMLInputElement, pass: HTMLInputElement) {
+    user.classList.remove('wrong');
+    pass.classList.remove('wrong');
   }
 
   startGame(overlay: HTMLElement) {

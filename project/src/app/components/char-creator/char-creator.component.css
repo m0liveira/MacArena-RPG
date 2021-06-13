@@ -73,21 +73,40 @@ body {
 }
 
 .box .container .slider {
+  position: relative;
   appearance: none;
-  background: white;
+  background: transparent;
   box-shadow: none;
   border-radius: 100rem;
   padding: 0;
   width: 50%;
   height: auto;
-  opacity: 0.6;
+  opacity: 0.95;
   cursor: pointer;
-  transition: opacity 250ms ease-in-out;
 }
 
-.box .container .slider:hover {
-  opacity: 1;
-  transition: opacity 250ms ease-in-out;
+.box .container .slider::before {
+  content: "Attack";
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsla(0, 100%, 59%, 0.35);
+  font-family: var(--pixel);
+  font-size: 0.7vw;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.box .container .slider:nth-of-type(3)::before {
+  content: "Intelligence";
+  color: hsla(204, 100%, 50%, 0.35);
+}
+
+.box .container .slider:nth-of-type(4)::before {
+  content: "Life Points";
+  color: hsla(113, 100%, 38%, 0.35);
 }
 
 .box .container .slider::-webkit-slider-thumb {
@@ -113,10 +132,9 @@ body {
 }
 
 .box .container button {
-  color: #ff4343;
+  color: #ff7373;
   background: #ffffff;
   border-radius: 0.3rem;
-  outline: none;
   border: none;
   font-size: 1.1vw;
   font-family: var(--semibold);
@@ -136,7 +154,34 @@ body {
   align-items: center;
   border: 2px solid #ff4343b3;
   border-right: none;
-  text-align: center;
   width: 15%;
   height: 15%;
+}
+
+.box .container .limitSkill p {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--semibold);
+  font-size: 1vw;
+  font-weight: 600;
+  text-align: center;
+  cursor: default;
+}
+
+.box .container .limitSkill span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff4343b3;
+  font-family: var(--pixel);
+  font-size: 1.3vw;
+  font-weight: 800;
+  text-align: center;
+  margin-top: 10%;
+  cursor: default;
+}
+
+.wrong {
+  color: red !important;
+  border: 2px solid red !important;
 }

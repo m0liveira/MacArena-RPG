@@ -6,28 +6,28 @@
   <div class="box">
     <div class="container">
       <!-- name -->
-      <input type="text" placeholder="Name" required>
+      <input #name type="text" placeholder="Name" required (click)="removeWrong(name)">
 
       <!-- atk -->
-      <input class="slider" type="range" min="0" max="20" value="10">
+      <input #atk class="slider" type="range" min="0" max="20" value="0" (input)="skillLimiter(atk, int, lp, limit)">
 
       <!-- int -->
-      <input class="slider" type="range" min="0" max="20" value="10">
+      <input #int class="slider" type="range" min="0" max="20" value="0" (input)="skillLimiter(atk, int, lp, limit)">
 
       <!-- vida -->
-      <input class="slider" type="range" min="0" max="20" value="10">
+      <input #lp class="slider" type="range" min="0" max="20" value="0" (input)="skillLimiter(atk, int, lp, limit)">
 
       <!-- username -->
-      <input type="text" placeholder="Username" required>
+      <input #user type="text" placeholder="Username" required (click)="removeWrong(user)">
 
       <!-- password -->
-      <input type="password" placeholder="Password" required>
+      <input #pass type="password" placeholder="Password" required (click)="removeWrong(pass)">
 
       <!-- create -->
-      <button>Create Me</button>
+      <button (click)="createChar(name.value, atk.value, int.value, lp.value, user.value, pass.value, name, user, pass)">Create Me</button>
 
       <div class="limitSkill">
-        <p>Points: 30</p>
+        <p>Points: <span #limit>30</span></p>
       </div>
     </div>
   </div>

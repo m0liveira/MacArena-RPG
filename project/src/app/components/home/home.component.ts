@@ -39,23 +39,32 @@ export class HomeComponent implements OnInit {
         input1.classList.add('wrong');
         input2.classList.add('wrong');
       }
-      console.log(x['data'])
+      console.log(x['data']);
     });
   }
 
-  logOn(user, pass, passConfirm: HTMLInputElement) {
-    if (pass == passConfirm.value) {
+  logOn(user, pass, input1: HTMLInputElement, input2: HTMLInputElement, passConfirm: HTMLInputElement) {
+    if ((pass == passConfirm.value)) {
       this.rpgService
         .logOn(user, pass)
-        .subscribe((x) => console.log(x['data']));
+        .subscribe((x) => {
+          if (x['code'] == 200) {
+            this.router.navigate(['/CharCreator']);
+          } else {
+            input1.classList.add('wrong');
+            input2.classList.add('wrong');
+            passConfirm.classList.add('wrong');
+          }
+          console.log(x['data']);
+        });
     } else {
-      alert('As passwords não são iguais!');
+      passConfirm.classList.add('wrong');
+      input2.classList.add('wrong');
     }
   }
 
-  removeWrong(user: HTMLInputElement, pass: HTMLInputElement) {
-    user.classList.remove('wrong');
-    pass.classList.remove('wrong');
+  removeWrong(input: HTMLInputElement) {
+    input.classList.remove('wrong');
   }
 
   startGame(overlay: HTMLElement) {

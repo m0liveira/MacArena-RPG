@@ -60,8 +60,8 @@
         </div>
 
         <div class="container">
-          <input #user (click)="removeWrong(user, pass)" type="text" placeholder="Username" required>
-          <input #pass (click)="removeWrong(user, pass)" type="password" placeholder="Password" required>
+          <input #user (click)="removeWrong(user)" type="text" placeholder="Username" required>
+          <input #pass (click)="removeWrong(pass)" type="password" placeholder="Password" required>
         </div>
 
         <div class="container">
@@ -84,14 +84,14 @@
         </div>
 
         <div class="container">
-          <input #username type="text" placeholder="Username" required>
-          <input #pass type="password" placeholder="Password" required>
-          <input #passConfirm type="password" placeholder="Confirm password" required>
+          <input #username type="text" placeholder="Username" required (click)="removeWrong(username)">
+          <input #password type="password" placeholder="Password" required (click)="removeWrong(password)">
+          <input #passConfirm type="password" placeholder="Confirm password" required (click)="removeWrong(passConfirm)">
         </div>
 
         <div class="container">
           <div></div>
-          <button (click)="logOn(username.value, pass.value, passConfirm)">Sign up</button>
+          <button (click)="logOn(username.value, password.value, username, password, passConfirm)">Sign up</button>
         </div>
       </div>
     </div>

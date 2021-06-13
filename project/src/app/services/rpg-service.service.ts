@@ -7,10 +7,11 @@ import { Injectable } from '@angular/core';
 export class RpgServiceService {
   constructor(private http: HttpClient) { }
 
+  // vars
   linkLogin: string = "http://moreiramoises.pt/server/apis/login.php";
   linkLogon = 'http://moreiramoises.pt/server/apis/signup.php';
   linkCreateChar = 'http://moreiramoises.pt/server/apis/createChart.php';
-  linkCharId = 'http://moreiramoises.pt/server/apis/get/getChar.php';
+  linkCharId = 'http://moreiramoises.pt/server/apis/get/getChar.php?PlayerID=';
   linkRndChar = 'http://moreiramoises.pt/server/apis/get/getRandomChar.php?';
 
   // log in to an account

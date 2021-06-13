@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { CityComponent } from './components/city/city.component';
+import { CharCreatorComponent } from './components/char-creator/char-creator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoadingComponent,
-    CityComponent
+    CityComponent,
+    CharCreatorComponent
   ],
   imports: [
     BrowserModule,

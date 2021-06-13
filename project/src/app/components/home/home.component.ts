@@ -9,6 +9,7 @@ import { RpgServiceService } from 'src/app/services/rpg-service.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  
   constructor(private rpgService: RpgServiceService, router: Router) {
     this.router = router;
   }

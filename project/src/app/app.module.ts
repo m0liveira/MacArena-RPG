@@ -8,6 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { CityComponent } from './components/city/city.component';
 import { CharCreatorComponent } from './components/char-creator/char-creator.component';
+import { ShopComponent } from './components/shop/shop.component';
+import { ArenaComponent } from './components/arena/arena.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { CharCreatorComponent } from './components/char-creator/char-creator.com
     HomeComponent,
     LoadingComponent,
     CityComponent,
-    CharCreatorComponent
+    CharCreatorComponent,
+    ShopComponent,
+    ArenaComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,7 @@
   </div>
 
   <div class="arena">
-    <img src="../../../assets/media/arena.png" alt="arena">
+    <img src="../../../assets/media/arena.png" alt="arena" (click)="goToArena()">
   </div>
 
   <div class="training">
@@ -12,12 +12,12 @@
   </div>
 
   <div class="shop">
-    <img src="../../../assets/media/shop.png" alt="shop">
+    <img src="../../../assets/media/shop.png" alt="shop" (click)="goToShop()">
   </div>
 
   <div class="playerCard not">
     <div class="top not">
-      <p>Username</p>
+      <p id="user">Username</p>
 
       <div class="img-container not">
         <img src="https://image.flaticon.com/icons/png/512/3135/3135715.png" alt="player profile">
@@ -29,7 +29,20 @@
     </div>
 
     <div class="bottom not">
+      <div class="img-container not">
+        <img src="../../../assets/media/attack.png" alt="attack">
+        <p id="atk">00</p>
+      </div>
 
+      <div class="img-container not">
+        <img src="../../../assets/media/inteligence.png" alt="intelligence">
+        <p id="int">00</p>
+      </div>
+
+      <div class="img-container not">
+        <img src="../../../assets/media/deffence.png" alt="life points">
+        <p id="lp">00</p>
+      </div>
     </div>
   </div>
 </body>

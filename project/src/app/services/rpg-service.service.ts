@@ -49,6 +49,11 @@ export class RpgServiceService {
     return this.http.post(this.linkCreateChar, dataToSend);
   }
 
+  // get character by account id
+  getCharID(id) {
+    return this.http.get(this.linkCharId + id);
+  }
+
   // get a random character
   getRndChar() {
     return this.http.get(this.linkRndChar);

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { RpgServiceService } from 'src/app/services/rpg-service.service';
+import { PlayerService } from 'src/app/services/player.service';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +10,17 @@ import { RpgServiceService } from 'src/app/services/rpg-service.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private rpgService: RpgServiceService, router: Router) {
+  constructor(
+    private rpgService: RpgServiceService,
+    private playerService: PlayerService,
+    router: Router
+  ) {
     this.router = router;
   }
 
   router: Router;
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   // variables
   check: boolean = false;
@@ -29,11 +33,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
   // login
   logIn(user, pass, input1: HTMLInputElement, input2: HTMLInputElement) {
     this.rpgService.logIn(user, pass).subscribe((x) => {
       if (x['code'] == 200) {
+        this.playerService.playerID = x['data'];
         this.router.navigate(['/City']);
       } else {
         input1.classList.add('wrong');
@@ -43,20 +47,24 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  logOn(user, pass, input1: HTMLInputElement, input2: HTMLInputElement, passConfirm: HTMLInputElement) {
-    if ((pass == passConfirm.value)) {
-      this.rpgService
-        .logOn(user, pass)
-        .subscribe((x) => {
-          if (x['code'] == 200) {
-            this.router.navigate(['/CharCreator']);
-          } else {
-            input1.classList.add('wrong');
-            input2.classList.add('wrong');
-            passConfirm.classList.add('wrong');
-          }
-          console.log(x['data']);
-        });
+  logOn(
+    user,
+    pass,
+    input1: HTMLInputElement,
+    input2: HTMLInputElement,
+    passConfirm: HTMLInputElement
+  ) {
+    if (pass == passConfirm.value) {
+      this.rpgService.logOn(user, pass).subscribe((x) => {
+        if (x['code'] == 200) {
+          this.router.navigate(['/CharCreator']);
+        } else {
+          input1.classList.add('wrong');
+          input2.classList.add('wrong');
+          passConfirm.classList.add('wrong');
+        }
+        console.log(x['data']);
+      });
     } else {
       passConfirm.classList.add('wrong');
       input2.classList.add('wrong');

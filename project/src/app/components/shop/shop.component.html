@@ -1,0 +1,26 @@
+<body>
+  <div class="bgImg"><img src="../../../assets/media/shop_bg.png" alt="shop background"></div>
+  <div class="box">
+    <div class="items">
+      <input #sword type="checkbox" (click)="chooseOneWeapon(sword, burguer, axe)">
+
+      <div class="weapons">
+        <img src="../../../assets/media/sword.png" alt="Soldier sword">
+      </div>
+
+      <input #burguer type="checkbox" (click)="chooseOneWeapon(sword, burguer, axe)">
+
+      <div class="weapons">
+        <img src="../../../assets/media/tracker.png" alt="Ultimate cheeseburguer">
+      </div>
+
+      <input #axe type="checkbox" (click)="chooseOneWeapon(sword, burguer, axe)">
+
+      <div class="weapons">
+        <img src="../../../assets/media/axes.png" alt="Berserk axe">
+      </div>
+    </div>
+
+    <button>Buy & equip</button>
+  </div>
+</body>

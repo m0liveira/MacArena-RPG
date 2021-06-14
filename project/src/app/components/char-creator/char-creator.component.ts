@@ -22,7 +22,7 @@ export class CharCreatorComponent implements OnInit {
   createChar(name, atk, int, lp, user, pass, input1: HTMLInputElement, input2: HTMLInputElement, input3: HTMLInputElement) {
     this.rpgService.createChar(name, atk, int, lp, user, pass).subscribe((x) => {
       if (x['code'] == 200) {
-        this.router.navigate(['/City']);
+        this.router.navigate(['/Home']);
       } else {
         input1.classList.add('wrong');
         input2.classList.add('wrong');

@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
+import { PlayerService } from 'src/app/services/player.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RpgServiceService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private playerService: PlayerService) { }
 
   // vars
   linkLogin: string = "http://moreiramoises.pt/server/apis/login.php";
@@ -13,6 +14,7 @@ export class RpgServiceService {
   linkCreateChar = 'http://moreiramoises.pt/server/apis/createChart.php';
   linkCharId = 'http://moreiramoises.pt/server/apis/get/getChar.php?PlayerID=';
   linkRndChar = 'http://moreiramoises.pt/server/apis/get/getRandomChar.php?';
+  linkUpdateChar = 'http://moreiramoises.pt/server/apis/updateChart.php';
 
   // log in to an account
   logIn(user, pass) {
@@ -59,4 +61,18 @@ export class RpgServiceService {
     return this.http.get(this.linkRndChar);
   }
 
+  // update character
+  updateStats(atk, int, vida) {
+    let dataToSend: FormData = new FormData();
+
+    dataToSend.append('name', this.playerService.player.name);
+    dataToSend.append('atk', atk);
+    dataToSend.append('isMonster', 'false');
+    dataToSend.append('int', int);
+    dataToSend.append('vida', vida);
+    dataToSend.append('username', this.playerService.username);
+    dataToSend.append('password', this.playerService.password);
+
+    return this.http.post(this.linkUpdateChar, dataToSend);
+  }
 }

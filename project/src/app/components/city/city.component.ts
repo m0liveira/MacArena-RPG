@@ -18,6 +18,7 @@ export class CityComponent implements OnInit {
     this.router = router;
   }
 
+  // execute functions on loading
   ngOnInit(): void {
     this.loadPlayer();
     this.getChar();
@@ -26,6 +27,51 @@ export class CityComponent implements OnInit {
   // vars
   router: Router;
 
+  // checks if the day is higher then the previous date stored
+  hasOneDayPassed() {
+    var date = new Date().toLocaleDateString();
+
+    if (localStorage.yourapp_date == date) {
+      return false;
+    }
+
+    localStorage.yourapp_date = date;
+    return true;
+  }
+
+  // just run once per day using function above
+  runOncePerDay(gym: HTMLElement, modal: HTMLElement, p: HTMLElement, h1: HTMLElement) {
+    if (!this.hasOneDayPassed()) {
+      p.innerText = "Gym closed earlier!";
+      h1.innerText = "Please comeback tomorrow!";
+      p.style.color = "red";
+      h1.style.color = "white";
+
+      gym.classList.toggle("hide");
+      modal.classList.toggle("hide");
+      return false;
+    }
+
+    // stats upgrade
+    this.rpgService.updateStats(parseInt(this.playerService.player.atk) + 1, parseInt(this.playerService.player.int) + 1, parseInt(this.playerService.player.lp) + 1).subscribe((x) => {
+      if (x['code'] == 200) {
+        this.getChar();
+        this.loadPlayer();
+      }
+    });
+
+    // Modal stuff
+    p.innerText = "You just got ripped!";
+    h1.innerText = "Your stats increased by 1";
+    p.style.color = "white";
+    h1.style.color = "hsl(120, 82%, 46%)";
+
+    // switch things
+    gym.classList.toggle("hide");
+    modal.classList.toggle("hide");
+  }
+
+  // get player character
   getChar() {
     this.rpgService.getCharID(this.playerService.playerID).subscribe((x) => {
       if (x['code'] == 200) {
@@ -45,6 +91,7 @@ export class CityComponent implements OnInit {
     });
   }
 
+  // load the player character into the game
   loadPlayer() {
     let user = document.getElementById('user');
     let atk = document.getElementById('atk');
@@ -57,40 +104,30 @@ export class CityComponent implements OnInit {
     lp.innerText = this.playerService.player.lp;
   }
 
+  // go to the shop
   goToShop() {
     this.router.navigate(['/Shop']);
   }
 
+  // go to the arena
   goToArena() {
     this.router.navigate(['/Arena']);
   }
 
-  goToWorkOut() {
-
+  // go to the trainning
+  goToWorkOut(gym: HTMLElement, modal: HTMLElement, overlay: HTMLElement) {
+    modal.classList.toggle("hide");
+    overlay.classList.toggle("hide");
+    gym.classList.toggle("hide");
   }
 
+  // log out of the player account
   logOut() {
     this.router.navigate(['/Home']);
   }
 
-  hasOneDayPassed() {
-    var date = new Date().toLocaleDateString();
-
-    if (localStorage.yourapp_date == date) {
-      return false;
-    }
-
-    localStorage.yourapp_date = date;
-    return true;
-  }
-
-  runOncePerDay() {
-    if (!this.hasOneDayPassed()) {
-      alert('f u!');
-
-      return false;
-    }
-
-    
+  // closes modal
+  closeModal(overlay: HTMLElement) {
+    overlay.classList.toggle("hide");
   }
 }

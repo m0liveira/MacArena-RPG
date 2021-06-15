@@ -286,12 +286,13 @@ div:nth-of-type(4):hover::before {
   border-radius: 0.5rem;
   font-family: var(--pixel);
   font-size: 1vw;
-  width: 15%;
-  height: 15%;
+  width: 17%;
+  height: 13%;
   cursor: pointer;
 }
 
 .overlay .modal {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -332,6 +333,22 @@ div:nth-of-type(4):hover::before {
 .overlay .modal h1 {
   color: hsl(120, 82%, 46%);
   font-size: 1.2vw;
+  cursor: default;
 }
 
-/*  */
+.overlay .modal button {
+  position: absolute;
+  top: -5%;
+  left: 97.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: red;
+  color: white;
+  border-radius: 1000rem;
+  border: 2px solid white;
+  font-size: 1.5vw;
+  width: 5%;
+  height: 9%;
+  cursor: pointer;
+}

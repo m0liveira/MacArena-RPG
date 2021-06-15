@@ -9,6 +9,9 @@ export class PlayerService {
 
   playerID: any;
 
+  password: any;
+  username: any;
+
   player: any = {
     name: "login",
     id: "",

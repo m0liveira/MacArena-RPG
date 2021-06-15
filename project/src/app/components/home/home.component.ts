@@ -38,6 +38,9 @@ export class HomeComponent implements OnInit {
     this.rpgService.logIn(user, pass).subscribe((x) => {
       if (x['code'] == 200) {
         this.playerService.playerID = x['data'];
+        this.playerService.username = input1.value;
+        this.playerService.password = input2.value;
+        
         this.router.navigate(['/City']);
       } else {
         input1.classList.add('wrong');

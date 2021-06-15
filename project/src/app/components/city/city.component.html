@@ -8,7 +8,7 @@
   </div>
 
   <div class="training">
-    <img src="../../../assets/media/training_barrack.png" alt="training">
+    <img src="../../../assets/media/training_barrack.png" alt="training" (click)="goToWorkOut(gym, modal, overlay)">
   </div>
 
   <div class="shop">
@@ -46,16 +46,17 @@
     </div>
   </div>
 
-  <div class="overlay not">
-    <div class="modal not">
-      <p>You just got ripped!</p>
-      <h1>Your stats increased by 1</h1>
+  <div #overlay class="overlay not hide">
+    <div #modal class="modal not">
+      <p #p>You just got ripped!</p>
+      <h1 #h1>Your stats increased by 1</h1>
+      <button (click)="closeModal(overlay)">✖</button>
     </div>
 
-    <div class="gym not hide">
+    <div #gym class="gym not hide">
       <div class="img-container not">
         <img src="../../../assets/media/gym.png" alt="gym">
-        <button (click)="runOncePerDay()">Boost Me</button>
+        <button (click)="runOncePerDay(gym, modal, p, h1)">Boost Me</button>
       </div>
     </div>
   </div>

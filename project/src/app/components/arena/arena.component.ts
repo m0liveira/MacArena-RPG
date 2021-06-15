@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { RpgServiceService } from 'src/app/services/rpg-service.service';
+import { PlayerService } from 'src/app/services/player.service';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-arena',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArenaComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private rpgService: RpgServiceService,
+    private playerService: PlayerService,
+    router: Router
+  ) {
+    this.router = router;
+  }
 
   ngOnInit(): void {
   }
+
+  // vars
+  router: Router;
 
 }

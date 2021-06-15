@@ -57,19 +57,40 @@ export class CityComponent implements OnInit {
     lp.innerText = this.playerService.player.lp;
   }
 
-  goToShop(){
+  goToShop() {
     this.router.navigate(['/Shop']);
   }
 
-  goToArena(){
+  goToArena() {
     this.router.navigate(['/Arena']);
   }
 
-  goToWorkOut(){
+  goToWorkOut() {
 
   }
 
   logOut() {
     this.router.navigate(['/Home']);
+  }
+
+  hasOneDayPassed() {
+    var date = new Date().toLocaleDateString();
+
+    if (localStorage.yourapp_date == date) {
+      return false;
+    }
+
+    localStorage.yourapp_date = date;
+    return true;
+  }
+
+  runOncePerDay() {
+    if (!this.hasOneDayPassed()) {
+      alert('f u!');
+
+      return false;
+    }
+
+    
   }
 }

@@ -64,7 +64,15 @@ div:not(.not):hover::before {
   background: rgb(255, 230, 0, 0.75);
   width: 25%;
   height: 25%;
-  clip-path: polygon( 45% 10%, 45% 35%, 100% 35%, 100% 65%, 45% 65%, 45% 90%, 0 50%);
+  clip-path: polygon(
+    45% 10%,
+    45% 35%,
+    100% 35%,
+    100% 65%,
+    45% 65%,
+    45% 90%,
+    0 50%
+  );
   transform: rotate(140deg);
   animation: indicatorTrain 750ms ease-in-out infinite forwards;
 }
@@ -126,7 +134,14 @@ div:nth-of-type(4):hover::before {
   align-items: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
-  background: linear-gradient( -45deg, rgba(254, 217, 117, 0.75) 5%, rgba(253, 244, 151, 0.75) 20%, rgba(253, 88, 73, 0.75) 40%, rgba(214, 36, 158, 0.75) 50%, rgba(40, 89, 235, 0.75) 90%);
+  background: linear-gradient(
+    -45deg,
+    rgba(254, 217, 117, 0.75) 5%,
+    rgba(253, 244, 151, 0.75) 20%,
+    rgba(253, 88, 73, 0.75) 40%,
+    rgba(214, 36, 158, 0.75) 50%,
+    rgba(40, 89, 235, 0.75) 90%
+  );
   width: 30%;
   height: 20%;
   clip-path: polygon(0 0, 100% 0%, 100% 65%, 30% 65%);
@@ -227,6 +242,96 @@ div:nth-of-type(4):hover::before {
   width: 50%;
   height: 100%;
   cursor: default;
+}
+
+.overlay {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 100%;
+}
+
+.overlay .gym {
+  border-radius: 0.5rem;
+  width: 65%;
+  height: 70%;
+}
+
+.overlay .gym .img-container {
+  position: relative;
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.overlay .gym .img-container img {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay .gym .img-container button {
+  position: absolute;
+  top: 75%;
+  left: 75%;
+  background: hsl(120, 71%, 42%);
+  color: white;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  font-family: var(--pixel);
+  font-size: 1vw;
+  width: 15%;
+  height: 15%;
+  cursor: pointer;
+}
+
+.overlay .modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: rgba(70, 70, 70, 0.7);
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  width: 45%;
+  height: 50%;
+}
+
+.overlay .modal p,
+.overlay .modal h1 {
+  color: white;
+  font-family: var(--pixel);
+  font-size: 2vw;
+  font-variant: small-caps;
+  padding: 0 10%;
+}
+
+.overlay .modal p {
+  position: relative;
+}
+
+.overlay .modal p::after {
+  content: "";
+  position: absolute;
+  top: -200%;
+  background: transparent;
+  border: 2px solid rgb(234, 202, 255);
+  border-right: none;
+  border-left: none;
+  width: 100%;
+  height: 100%;
+  padding-top: 25%;
+}
+
+.overlay .modal h1 {
+  color: hsl(120, 82%, 46%);
+  font-size: 1.2vw;
 }
 
 /*  */

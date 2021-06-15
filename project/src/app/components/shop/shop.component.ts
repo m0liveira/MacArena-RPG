@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { PlayerService } from 'src/app/services/player.service';
 
 @Component({
   selector: 'app-shop',
@@ -6,24 +9,43 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shop.component.css'],
 })
 export class ShopComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  chooseOneWeapon(
-    sword: HTMLInputElement,
-    burguer: HTMLInputElement,
-    axe: HTMLInputElement
+  constructor(private playerService: PlayerService,
+    router: Router
   ) {
+    this.router = router;
+  }
+
+  ngOnInit(): void { }
+
+  // vars
+  router: Router;
+
+  equipWeapon(sword: HTMLInputElement, burguer: HTMLInputElement, axe: HTMLInputElement) {
     if (sword.checked) {
-      burguer.checked = false;
-      axe.checked = false;
+      this.playerService.player.weapon = "sword";
+
     } else if (burguer.checked) {
-      sword.checked = false;
-      axe.checked = false;
+      this.playerService.player.weapon = "burguer";
+
     } else if (axe.checked) {
-      burguer.checked = false;
-      sword.checked = false;
+      this.playerService.player.weapon = "axe";
     }
+    console.log(this.playerService.player);
+    this.router.navigate(['/City']);
+  }
+
+  chooseSword(burguer: HTMLInputElement, axe: HTMLInputElement) {
+    burguer.checked = false;
+    axe.checked = false;
+  }
+
+  chooseBurguer(sword: HTMLInputElement, axe: HTMLInputElement) {
+    sword.checked = false;
+    axe.checked = false;
+  }
+
+  chooseAxe(sword: HTMLInputElement, burguer: HTMLInputElement) {
+    burguer.checked = false;
+    sword.checked = false;
   }
 }

@@ -15,3 +15,120 @@ body {
   width: 100%;
   height: 100%;
 }
+
+.gameStuff {
+  position: absolute;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60%;
+}
+
+.gameStuff p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 0.3rem;
+  font-family: var(--pixel);
+  font-size: 1vw;
+  width: 25%;
+  height: 20%;
+  transition: opacity 350ms ease-in-out;
+}
+
+.gameStuff button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 0.3rem;
+  font-family: var(--pixel);
+  font-size: 1.3vw;
+  width: 15%;
+  height: 15%;
+  cursor: pointer;
+}
+
+.player {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 25%;
+  height: 55%;
+}
+
+.player:nth-last-of-type(1) {
+  top: 30%;
+  left: 65%;
+}
+
+.player .lifeBar {
+  position: relative;
+  width: 80%;
+  height: 10%;
+  border: 3px solid white;
+  border-radius: 0.3rem;
+  overflow: hidden;
+}
+
+.player .lifeBar h1 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: var(--pixel);
+  font-size: 1.3vw;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.player .lifeBar .hp {
+  background: hsl(120, 86%, 48%);
+  width: 100%;
+  height: 100%;
+  transition: transform 800ms ease-in-out;
+  z-index: 1;
+}
+
+.player .img-container {
+  width: 100%;
+  height: 90%;
+}
+
+.player .img-container img {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+}
+
+.hide2 {
+  opacity: 0;
+}
+
+.attack {
+  animation: attack 400ms linear 3 forwards;
+}
+
+@keyframes attack {
+  from {
+    transform: translateY(-5%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

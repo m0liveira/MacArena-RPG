@@ -1,7 +1,50 @@
 <body>
+  <!-- background map -->
   <div class="map">
     <img src="../../../assets/media/arenaMap.png">
   </div>
 
+  <div class="gameStuff">
+    <!-- damage dealt -->
+    <p #dmgInfo class="hide2">Lorem, ipsum dolor. </p>
 
+    <!-- fight button -->
+    <button #btn (click)="battle(btn, p1, lp1, P1, p2, lp2, P2, dmgInfo)">Fight</button>
+  </div>
+
+  <!-- player character -->
+  <div #p1 class="player">
+    <!-- life bar -->
+    <div class="lifeBar">
+      <!-- character name -->
+      <h1 id="p1"></h1>
+
+      <!-- hp tracker -->
+      <div #lp1 class="hp">
+      </div>
+    </div>
+
+    <!-- character image -->
+    <div class="img-container">
+      <img #P1 src="../../../assets/media/rightAlive.png" alt="warrior">
+    </div>
+  </div>
+
+  <!-- player character -->
+  <div #p2 class="player">
+    <!-- life bar -->
+    <div class="lifeBar">
+      <!-- character name -->
+      <h1 id="p2"></h1>
+
+      <!-- hp tracker -->
+      <div #lp2 class="hp">
+      </div>
+    </div>
+
+    <!-- character image -->
+    <div class="img-container">
+      <img #P2 src="../../../assets/media/leftAlive.png" alt=" warrior">
+    </div>
+  </div>
 </body>

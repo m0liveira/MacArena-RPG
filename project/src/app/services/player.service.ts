@@ -21,6 +21,6 @@ export class PlayerService {
     lp: "0",
     img: "",
     idPlayer: "",
-    weapon: ""
+    weapon: "punch"
   };
 }

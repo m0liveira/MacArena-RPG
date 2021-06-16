@@ -7,11 +7,14 @@ export class PlayerService {
 
   constructor() { }
 
+  // user id
   playerID: any;
 
+  // user data
   password: any;
   username: any;
 
+  // player
   player: any = {
     name: "login",
     id: "",

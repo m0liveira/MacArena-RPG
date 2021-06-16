@@ -5,6 +5,7 @@ body {
   height: 100vh;
 }
 
+/* background map */
 .map {
   position: absolute;
   top: 0;
@@ -29,6 +30,7 @@ body {
   height: 100%;
 }
 
+/* character creator box */
 .box {
   position: relative;
   background: white;
@@ -61,6 +63,7 @@ body {
   height: 100%;
 }
 
+/* inputs */
 .box .container input {
   background: white;
   border: 1px solid black;
@@ -72,6 +75,7 @@ body {
   height: 7%;
 }
 
+/* input sliders */
 .box .container .slider {
   position: relative;
   appearance: none;
@@ -131,6 +135,7 @@ body {
   border-color: hsl(120, 67%, 40%);
 }
 
+/* button */
 .box .container button {
   color: #ff7373;
   background: #ffffff;
@@ -145,6 +150,7 @@ body {
   cursor: pointer;
 }
 
+/* skill limit info */
 .box .container .limitSkill {
   position: absolute;
   top: 28%;
@@ -181,6 +187,7 @@ body {
   cursor: default;
 }
 
+/* independent class */
 .wrong {
   color: red !important;
   border: 2px solid red !important;

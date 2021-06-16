@@ -1,20 +1,25 @@
 <body>
+  <!-- map -->
   <div class="map not">
     <img src="../../../assets/media/map_texture.png">
   </div>
 
+  <!-- arena -->
   <div class="arena">
     <img src="../../../assets/media/arena.png" alt="arena" (click)="goToArena()">
   </div>
 
+  <!-- gym -->
   <div class="training">
     <img src="../../../assets/media/training_barrack.png" alt="training" (click)="goToWorkOut(gym, modal, overlay)">
   </div>
 
+  <!-- shop -->
   <div class="shop">
     <img src="../../../assets/media/shop.png" alt="shop" (click)="goToShop()">
   </div>
 
+  <!-- player card -->
   <div class="playerCard not">
     <div class="top not">
       <p id="user">Username</p>
@@ -46,6 +51,7 @@
     </div>
   </div>
 
+  <!-- gym modal -->
   <div #overlay class="overlay not hide">
     <div #modal class="modal not">
       <p #p>You just got ripped!</p>

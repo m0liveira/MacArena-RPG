@@ -5,6 +5,7 @@ body {
   height: 100vh;
 }
 
+/* background image */
 .bgImg {
   position: absolute;
   top: 0;
@@ -19,6 +20,7 @@ body {
   height: 100%;
 }
 
+/* shop box */
 .box {
   position: relative;
   display: flex;
@@ -33,6 +35,7 @@ body {
   border-right: none;
 }
 
+/* items */
 .box .items {
   position: relative;
   display: flex;
@@ -67,6 +70,7 @@ body {
   left: 72.5%;
 }
 
+/* weapons */
 .box .items .weapons {
   position: relative;
   display: flex;
@@ -116,6 +120,7 @@ body {
   height: 60%;
 }
 
+/* button */
 .box button {
   background: #b04a2a;
   color: white;

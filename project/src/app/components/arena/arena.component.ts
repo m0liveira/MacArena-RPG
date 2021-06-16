@@ -220,6 +220,6 @@ export class ArenaComponent implements OnInit {
         }
       }, 1500);
     }
+    //#endregion
   }
-  //#endregion
 }

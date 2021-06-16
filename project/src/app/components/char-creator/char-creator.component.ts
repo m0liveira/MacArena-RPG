@@ -19,6 +19,7 @@ export class CharCreatorComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  // creates a character
   createChar(name, atk, int, lp, user, pass, input1: HTMLInputElement, input2: HTMLInputElement, input3: HTMLInputElement) {
     this.rpgService.createChar(name, atk, int, lp, user, pass).subscribe((x) => {
       if (x['code'] == 200) {
@@ -28,7 +29,6 @@ export class CharCreatorComponent implements OnInit {
         input2.classList.add('wrong');
         input3.classList.add('wrong');
       }
-      console.log(x['data']);
     });
   }
 
@@ -36,6 +36,7 @@ export class CharCreatorComponent implements OnInit {
     input.classList.remove('wrong');
   }
 
+  // limits the applyable skill points
   skillLimiter(atk: HTMLInputElement, int: HTMLInputElement, lp: HTMLInputElement, limit: HTMLElement) {
     let limiter: number = 30;
 

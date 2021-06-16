@@ -159,6 +159,7 @@ div:nth-of-type(4):hover::before {
   z-index: -1;
 }
 
+/* top of the player card */
 .playerCard .top {
   display: flex;
   flex-direction: row;
@@ -168,7 +169,7 @@ div:nth-of-type(4):hover::before {
   height: 25%;
 }
 
-/*  */
+/* player name */
 
 .playerCard .top p {
   display: flex;
@@ -184,6 +185,7 @@ div:nth-of-type(4):hover::before {
   cursor: default;
 }
 
+/* player img  + log out img*/
 .playerCard .top .img-container {
   border-radius: 100%;
   width: 10%;
@@ -205,6 +207,7 @@ div:nth-of-type(4):hover::before {
   height: 100%;
 }
 
+/* bottom of the player card */
 .playerCard .bottom {
   display: flex;
   flex-direction: row;
@@ -215,6 +218,7 @@ div:nth-of-type(4):hover::before {
   height: 50%;
 }
 
+/* player stats */
 .playerCard .bottom .img-container {
   display: flex;
   flex-direction: row;
@@ -244,6 +248,7 @@ div:nth-of-type(4):hover::before {
   cursor: default;
 }
 
+/* overlay */
 .overlay {
   position: absolute;
   display: flex;
@@ -256,6 +261,7 @@ div:nth-of-type(4):hover::before {
   height: 100%;
 }
 
+/* gym */
 .overlay .gym {
   border-radius: 0.5rem;
   width: 65%;
@@ -291,6 +297,7 @@ div:nth-of-type(4):hover::before {
   cursor: pointer;
 }
 
+/* gym modal */
 .overlay .modal {
   position: relative;
   display: flex;
@@ -336,6 +343,7 @@ div:nth-of-type(4):hover::before {
   cursor: default;
 }
 
+/* train button */
 .overlay .modal button {
   position: absolute;
   top: -5%;

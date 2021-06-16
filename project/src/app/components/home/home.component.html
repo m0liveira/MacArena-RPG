@@ -1,4 +1,5 @@
 <body>
+  <!-- clouds svg -->
   <svg width="1751" height="684" viewBox="0 0 1751 684" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M325.105 75.3225C325.114 74.8947 325.125 74.4677 325.125 74.0385C325.125 33.1484 285.518 0 236.662 0C194.558 0 159.329 24.6179 150.392 57.5931C142.059 53.6888 132.46 51.4531 122.231 51.4531C90.3126 51.4531 64.4386 73.1088 64.4386 99.8215C64.4386 100.913 64.4973 101.993 64.5824 103.067C40.887 110.429 24 129.517 24 151.911C24 180.679 51.865 204 86.2377 204H308.203C351.169 204 386 174.848 386 138.888C386 107.786 359.944 81.7824 325.105 75.3225Z"
@@ -38,13 +39,17 @@
       fill="white" />
   </svg>
 
+  <!-- background image -->
   <div class="img-container">
     <img src="../../../assets/media/coliseum.png" alt="coliseum">
+
+    <!-- dialogue -->
     <div class="dialoge">
       <p>Are you man enough to fight in this half pixelated arena?</p>
     </div>
   </div>
 
+  <!-- start button -->
   <a (click)="startGame(overlay)">Start Game</a>
 
   <!-- sign in/up form -->
@@ -56,6 +61,7 @@
 
         <div class="container">
           <p>Sign in</p>
+
           <h1>Fill the form below to login into your account</h1>
         </div>
 
@@ -66,6 +72,7 @@
 
         <div class="container">
           <input id="checkbox" type="checkbox" (click)="checkAnim(checkmark)">
+
           <span #cbox class="checkbox">
             <span #checkmark class="checkMark">✖</span>
           </span>
@@ -80,6 +87,7 @@
 
         <div class="container">
           <p>Sign up</p>
+
           <h1>Fill the form below to create an account</h1>
         </div>
 
@@ -90,7 +98,9 @@
         </div>
 
         <div class="container">
+          <!-- just to give space -->
           <div></div>
+
           <button (click)="logOn(username.value, password.value, username, password, passConfirm)">Sign up</button>
         </div>
       </div>

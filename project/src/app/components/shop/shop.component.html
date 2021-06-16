@@ -1,6 +1,12 @@
 <body>
-  <div class="bgImg"><img src="../../../assets/media/shop_bg.png" alt="shop background"></div>
+  <!-- background image -->
+  <div class="bgImg">
+    <img src="../../../assets/media/shop_bg.png" alt="shop background">
+  </div>
+
+  <!-- shop box -->
   <div class="box">
+    <!-- weapons -->
     <div class="items">
       <input #sword type="checkbox" (click)="chooseSword(burguer, axe)">
 
@@ -21,6 +27,7 @@
       </div>
     </div>
 
+    <!-- button -->
     <button (click)="equipWeapon(sword, burguer, axe)">Buy & equip</button>
   </div>
 </body>

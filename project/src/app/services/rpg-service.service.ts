@@ -51,7 +51,7 @@ export class RpgServiceService {
     return this.http.post(this.linkCreateChar, dataToSend);
   }
 
-  // get character by account id
+  // get a character by account id
   getCharID(id) {
     return this.http.get(this.linkCharId + id);
   }
@@ -61,7 +61,7 @@ export class RpgServiceService {
     return this.http.get(this.linkRndChar);
   }
 
-  // update character
+  // update your character character
   updateStats(atk, int, vida) {
     let dataToSend: FormData = new FormData();
 

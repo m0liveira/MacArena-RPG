@@ -18,13 +18,15 @@ export class HomeComponent implements OnInit {
     this.router = router;
   }
 
-  router: Router;
 
-  ngOnInit(): void {}
+
+  ngOnInit(): void { }
 
   // variables
+  router: Router;
   check: boolean = false;
 
+  // remember me (not working for now)
   rememberMe(cbox: HTMLInputElement) {
     if (cbox.checked) {
       //guarda em coockies e guarda o check em coockies tambem.
@@ -40,22 +42,17 @@ export class HomeComponent implements OnInit {
         this.playerService.playerID = x['data'];
         this.playerService.username = input1.value;
         this.playerService.password = input2.value;
-        
+
         this.router.navigate(['/City']);
       } else {
         input1.classList.add('wrong');
         input2.classList.add('wrong');
       }
-      console.log(x['data']);
     });
   }
 
-  logOn(
-    user,
-    pass,
-    input1: HTMLInputElement,
-    input2: HTMLInputElement,
-    passConfirm: HTMLInputElement
+  // sign up
+  logOn(user, pass, input1: HTMLInputElement, input2: HTMLInputElement, passConfirm: HTMLInputElement
   ) {
     if (pass == passConfirm.value) {
       this.rpgService.logOn(user, pass).subscribe((x) => {
@@ -66,7 +63,6 @@ export class HomeComponent implements OnInit {
           input2.classList.add('wrong');
           passConfirm.classList.add('wrong');
         }
-        console.log(x['data']);
       });
     } else {
       passConfirm.classList.add('wrong');
@@ -74,14 +70,17 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  // remove wrong class
   removeWrong(input: HTMLInputElement) {
     input.classList.remove('wrong');
   }
 
+  // starts game
   startGame(overlay: HTMLElement) {
     overlay.classList.remove('hide');
   }
 
+  // does the check animation
   checkAnim(checkmark: HTMLElement) {
     if (!this.check) {
       checkmark.classList.add('checkAnim');

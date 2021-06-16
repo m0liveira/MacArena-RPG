@@ -337,6 +337,8 @@ a {
   height: 27%;
 }
 
+/* independent class */
+
 .checkAnim {
   -webkit-animation: check 350ms 1 forwards;
   animation: check 350ms 1 forwards;
@@ -369,9 +371,7 @@ a {
   }
 }
 
-/* random classes */
-
-.wrong{
+.wrong {
   color: red !important;
   border-color: red !important;
 }

@@ -3,12 +3,14 @@ body {
   height: 100vh;
 }
 
+/* background video */
 video {
   width: 100%;
   height: 100%;
   object-fit: fill;
 }
 
+/* video overlay */
 .overlay {
   position: absolute;
   top: 0;
@@ -19,6 +21,7 @@ video {
   z-index: 1;
 }
 
+/* progress bar */
 .overlay .progress {
   position: fixed;
   top: 75%;
@@ -31,6 +34,7 @@ video {
   overflow: hidden;
 }
 
+/* progressbar tracker + loader */
 .overlay .progress .loader {
   position: absolute;
   top: 0;
@@ -55,7 +59,7 @@ video {
   object-fit: fill;
 }
 
-/* load animation */
+/* load animation  + independent classes*/
 
 .load {
   -webkit-animation: load 4s 1 forwards;

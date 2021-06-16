@@ -31,7 +31,6 @@ export class ShopComponent implements OnInit {
     } else if (axe.checked) {
       this.playerService.player.weapon = "axe";
     }
-    console.log(this.playerService.player);
     this.router.navigate(['/City']);
   }
 

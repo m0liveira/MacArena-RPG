@@ -24,6 +24,7 @@ export class CharCreatorComponent implements OnInit {
     this.rpgService.createChar(name, atk, int, lp, user, pass).subscribe((x) => {
       if (x['code'] == 200) {
         this.router.navigate(['/Home']);
+
       } else {
         input1.classList.add('wrong');
         input2.classList.add('wrong');
@@ -52,6 +53,7 @@ export class CharCreatorComponent implements OnInit {
       atk.value = atk.max;
       int.value = int.max;
       lp.value = lp.max;
+
     } else if (limiter < 0) {
       alert("Parece que passou o limite de skill points recebidos :(");
 
@@ -64,6 +66,7 @@ export class CharCreatorComponent implements OnInit {
       lp.max = '20';
 
       limiter = 0;
+      
     } else {
       atk.max = '20';
       int.max = '20';

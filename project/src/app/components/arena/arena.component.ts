@@ -92,6 +92,7 @@ export class ArenaComponent implements OnInit {
   // calculates if the attack hits or misses
   hitMiss(didHit: number, player: PlayerService | EnemyService): number {
     let damage: number = parseInt(player.player.atk) + this.weaponDmg();
+
     if (didHit >= 4) {
       return damage *= (didHit / 10);
 
@@ -117,7 +118,6 @@ export class ArenaComponent implements OnInit {
   // check if player is dead
   isDead(hp, player, dead, winModal): boolean {
     if (hp <= 0) {
-      // is dead end game
       player.src = dead;
 
       setTimeout(() => {

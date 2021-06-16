@@ -10,11 +10,11 @@ export class RpgServiceService {
 
   // vars
   linkLogin: string = "http://moreiramoises.pt/server/apis/login.php";
-  linkLogon = 'http://moreiramoises.pt/server/apis/signup.php';
-  linkCreateChar = 'http://moreiramoises.pt/server/apis/createChart.php';
-  linkCharId = 'http://moreiramoises.pt/server/apis/get/getChar.php?PlayerID=';
-  linkRndChar = 'http://moreiramoises.pt/server/apis/get/getRandomChar.php?';
-  linkUpdateChar = 'http://moreiramoises.pt/server/apis/updateChart.php';
+  linkLogon: string = 'http://moreiramoises.pt/server/apis/signup.php';
+  linkCreateChar: string = 'http://moreiramoises.pt/server/apis/createChart.php';
+  linkCharId: string = 'http://moreiramoises.pt/server/apis/get/getChar.php?PlayerID=';
+  linkRndChar: string = 'http://moreiramoises.pt/server/apis/get/getRandomChar.php?';
+  linkUpdateChar: string = 'http://moreiramoises.pt/server/apis/updateChart.php';
 
   // log in to an account
   logIn(user, pass) {

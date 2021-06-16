@@ -9,7 +9,24 @@
     <p #dmgInfo class="hide2">Lorem, ipsum dolor. </p>
 
     <!-- fight button -->
-    <button #btn (click)="battle(btn, p1, lp1, P1, p2, lp2, P2, dmgInfo)">Fight</button>
+    <button #btn (click)="battle(btn, p1, lp1, P1, p2, lp2, P2, dmgInfo, winModal, winner, ally, enemy)">Fight</button>
+  </div>
+
+  <!-- winner modal -->
+  <div #winModal class="winner hide">
+    <p #winner>winner</p>
+
+    <div class="img-box">
+      <div class="img-container">
+        <img #ally src="../../../assets/media/rightAlive.png" alt="winner">
+      </div>
+
+      <div class="img-container">
+        <img #enemy src="../../../assets/media/leftDead.png" alt="deafeated">
+      </div>
+    </div>
+
+    <button (click)="goToCity()">Return to City</button>
   </div>
 
   <!-- player character -->

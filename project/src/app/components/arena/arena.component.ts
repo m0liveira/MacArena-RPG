@@ -29,6 +29,8 @@ export class ArenaComponent implements OnInit {
   router: Router;
   p1: string;
   p2: string;
+  p1TotalHp: number;
+  p2TotalHp: number;
   p1hp: number;
   p2hp: number;
 
@@ -46,8 +48,12 @@ export class ArenaComponent implements OnInit {
 
         this.loadPlayers();
 
-        this.p1hp = parseInt(this.playerService.player.lp);
-        this.p2hp = parseInt(this.enemyService.player.lp);
+        // total player hp
+        this.p1TotalHp = parseInt(this.playerService.player.lp);
+        this.p2TotalHp = parseInt(this.enemyService.player.lp);
+
+        this.p1hp = this.p1TotalHp;
+        this.p2hp = this.p2TotalHp;
       }
     });
   }
@@ -94,21 +100,21 @@ export class ArenaComponent implements OnInit {
     let damage: number = parseInt(player.player.atk) + this.weaponDmg();
 
     if (didHit >= 4) {
-      return damage *= (didHit / 10);
+      return Math.round(damage *= (didHit / 10));
 
     } else {
       return damage = 0;
     }
   }
 
+  //calcutes the player hp percentage
+  playerHpPercentage(currentHP: number, totalHP: number) {
+    return currentHP <= 0 ? 0 : ((currentHP / 100) / (totalHP / 100)) * 100;
+  }
+
   // reduces life if damaged
   gotDamaged(damage: number, hp): number {
     return hp -= damage;
-  }
-
-  // calculate hp animation
-  lifeAnimCalc(hp): number {
-    return 100 - (hp * 10);
   }
 
   goToCity() {
@@ -155,6 +161,12 @@ export class ArenaComponent implements OnInit {
       let didHit: number = this.getRndNum();
       let damage: number = this.hitMiss(didHit, this.playerService);
 
+
+
+      console.log("dano: ", damage);
+
+
+
       // add / remove fight animation
       damage == 0 ? dmgInfo.innerText = "Missed: " + Math.round(damage) + " damage dealt!" : dmgInfo.innerText = "Hit: " + Math.round(damage) + " damage dealt!";
 
@@ -168,7 +180,9 @@ export class ArenaComponent implements OnInit {
 
       // add loosing life animation and calculate hp
       this.p2hp = this.gotDamaged(damage, this.p2hp);
-      lp2.style.transform = "translate(-" + this.lifeAnimCalc(this.p2hp) + "%)";
+
+      let player2HPAfterAttack = this.playerHpPercentage(this.p2hp, this.p2TotalHp);
+      lp2.style.width = `${player2HPAfterAttack}%`;
 
       // check if player died
       isDead = this.isDead(this.p2hp, P2, dead2, winModal);
@@ -189,6 +203,8 @@ export class ArenaComponent implements OnInit {
         let didHit = this.getRndNum();
         let damage = this.hitMiss(didHit, this.enemyService);
 
+        console.log("dano: ", damage);
+
         // add / remove fight animation
         damage == 0 ? dmgInfo.innerText = "Missed: " + Math.round(damage) + " damage dealt!" : dmgInfo.innerText = "Hit: " + Math.round(damage) + " damage dealt!";
 
@@ -202,7 +218,9 @@ export class ArenaComponent implements OnInit {
 
         // add loosing life animation and calculate hp
         this.p1hp = this.gotDamaged(damage, this.p1hp);
-        lp1.style.transform = "translateX(-" + this.lifeAnimCalc(this.p1hp) + "%)";
+
+        let player1HPAfterAttack = this.playerHpPercentage(this.p1hp, this.p1TotalHp);
+        lp1.style.width = `${player1HPAfterAttack}%`;
 
         // check if player died
         isDead = this.isDead(this.p1hp, P1, dead1, winModal);

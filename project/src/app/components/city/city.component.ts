@@ -27,50 +27,6 @@ export class CityComponent implements OnInit {
   // vars
   router: Router;
 
-  // checks if the day is higher then the previous date stored
-  hasOneDayPassed() {
-    var date = new Date().toLocaleDateString();
-
-    if (localStorage.yourapp_date == date) {
-      return false;
-    }
-
-    localStorage.yourapp_date = date;
-    return true;
-  }
-
-  // just run once per day using function above
-  runOncePerDay(gym: HTMLElement, modal: HTMLElement, p: HTMLElement, h1: HTMLElement) {
-    if (!this.hasOneDayPassed()) {
-      p.innerText = "Gym closed earlier!";
-      h1.innerText = "Please comeback tomorrow!";
-      p.style.color = "red";
-      h1.style.color = "white";
-
-      gym.classList.toggle("hide");
-      modal.classList.toggle("hide");
-      return false;
-    }
-
-    // stats upgrade
-    this.rpgService.updateStats(parseInt(this.playerService.player.atk) + 1, parseInt(this.playerService.player.int) + 1, parseInt(this.playerService.player.lp) + 1).subscribe((x) => {
-      if (x['code'] == 200) {
-        this.getChar();
-        this.loadPlayer();
-      }
-    });
-
-    // Modal stuff
-    p.innerText = "You just got ripped!";
-    h1.innerText = "Your stats increased by 1";
-    p.style.color = "white";
-    h1.style.color = "hsl(120, 82%, 46%)";
-
-    // switch things
-    gym.classList.toggle("hide");
-    modal.classList.toggle("hide");
-  }
-
   // get player character
   getChar() {
     this.rpgService.getCharID(this.playerService.playerID).subscribe((x) => {
@@ -102,6 +58,52 @@ export class CityComponent implements OnInit {
     atk.innerText = this.playerService.player.atk;
     int.innerText = this.playerService.player.int;
     lp.innerText = this.playerService.player.lp;
+  }
+
+  // checks if the day is higher then the previous date stored
+  hasOneDayPassed() {
+    var date = new Date().toLocaleDateString();
+
+    if (localStorage.yourapp_date == date) {
+      return false;
+    }
+
+    localStorage.yourapp_date = date;
+    return true;
+  }
+
+  // just run once per day using function above
+  runOncePerDay(gym: HTMLElement, modal: HTMLElement, p: HTMLElement, h1: HTMLElement) {
+    if (!this.hasOneDayPassed()) {
+      p.innerText = "Gym closed earlier!";
+      h1.innerText = "Please comeback tomorrow!";
+      p.style.color = "red";
+      h1.style.color = "white";
+
+      gym.classList.toggle("hide");
+      modal.classList.toggle("hide");
+      return false;
+    }
+
+    // stats upgrade
+    this.rpgService.updateStats(parseInt(this.playerService.player.atk) + 1, parseInt(this.playerService.player.int) + 1, parseInt(this.playerService.player.lp) + 1).subscribe((x) => {
+      console.log(x['code']);
+
+      if (x['code'] == 200) {
+        this.getChar();
+        this.loadPlayer();
+      }
+    });
+
+    // Modal stuff
+    p.innerText = "You just got ripped!";
+    h1.innerText = "Your stats increased by 1";
+    p.style.color = "white";
+    h1.style.color = "hsl(120, 82%, 46%)";
+
+    // switch things
+    gym.classList.toggle("hide");
+    modal.classList.toggle("hide");
   }
 
   // go to the shop

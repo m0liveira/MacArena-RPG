@@ -65,6 +65,7 @@ export class RpgServiceService {
   updateStats(atk, int, vida) {
     let dataToSend: FormData = new FormData();
 
+    dataToSend.append('idChar', this.playerService.player.id);
     dataToSend.append('name', this.playerService.player.name);
     dataToSend.append('atk', atk);
     dataToSend.append('isMonster', 'false');
